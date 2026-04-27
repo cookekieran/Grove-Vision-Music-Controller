@@ -39,12 +39,11 @@ def init_weights(m):
     if type(m) == torch.nn.Linear or type(m) == torch.nn.Conv2d:
         torch.nn.init.xavier_uniform_(m.weight)
 
-num_classes = 4
+num_classes = 2
 model = TinyCNN(num_outputs=num_classes).to(device)
 model.apply(init_weights)
 
-def export_to_onnx(model_path, output_name="model2.onnx"):
-    num_classes = 4 
+def export_to_onnx(model_path, output_name="model5.onnx"):
     model = TinyCNN(num_outputs=num_classes)
 
     model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
@@ -67,4 +66,4 @@ def export_to_onnx(model_path, output_name="model2.onnx"):
     print("Success!")
 
 if __name__ == "__main__":
-    export_to_onnx("best_model2.pth")
+    export_to_onnx("best_model5.pth")
