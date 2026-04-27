@@ -3,7 +3,7 @@ import numpy as np
 import glob
 import cv2
 
-loaded = tf.saved_model.load("tf_model2")
+loaded = tf.saved_model.load("tf_model5")
 
 concrete_func = None
 
@@ -34,7 +34,7 @@ converter.optimizations = [tf.lite.Optimize.DEFAULT]
 
 IMG_SIZE = (96, 96)
 
-data_files = glob.glob("data/training/*/*.jpg")
+data_files = glob.glob("datav5/training/*/*.jpg")
 np.random.shuffle(data_files)
 
 # sample data
