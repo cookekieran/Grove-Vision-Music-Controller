@@ -1,6 +1,11 @@
 """
-This script loads a convolutional neural network with its trained paramaters
-and exports the model as a .onnx file.
+Export .pth -> .onnx
+
+This script loads a trained Convolutional Neural Network from a PyTorch 
+checkpoint (.pth) and exports it to the ONNX format for cross-platform deployment.
+
+Requirements:
+    - A trained '.pth' file (generated via notebooks/CNN_v3.ipynb)
 """
 
 import torch
