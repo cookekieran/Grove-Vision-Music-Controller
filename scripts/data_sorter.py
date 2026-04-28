@@ -1,7 +1,12 @@
+"""
+This script organises raw training data from edgeimpulse.com, labelling images with their 
+respective classes. Images for each label are grouped into a folder.
+"""
+
 import os
 import shutil
 
-source_folder = 'C:/Personal Scratchpad/Music Hand Gestures/data/training'
+source_folder = './data/training'
 
 def organize_data():
     files = [f for f in os.listdir(source_folder) if os.path.isfile(os.path.join(source_folder, f))]
