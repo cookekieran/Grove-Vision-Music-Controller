@@ -34,7 +34,7 @@ converter.optimizations = [tf.lite.Optimize.DEFAULT]
 
 IMG_SIZE = (96, 96)
 
-data_files = glob.glob("datav5/training/*/*.jpg")
+data_files = glob.glob("data/training/*/*.jpg")
 np.random.shuffle(data_files)
 
 # sample data
