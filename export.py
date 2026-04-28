@@ -66,4 +66,4 @@ def export_to_onnx(model_path, output_name="model5.onnx"):
     print("Success!")
 
 if __name__ == "__main__":
-    export_to_onnx("best_model5.pth")
+    export_to_onnx("best_model.pth")
