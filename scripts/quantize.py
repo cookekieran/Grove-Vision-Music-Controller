@@ -1,3 +1,13 @@
+"""
+TensorFlow SavedModel -> TFLite (INT8 Quantization)
+
+This script completes two tasks:
+1. Fixes/Defines a 'serving_default' signature for the TensorFlow model to 
+   ensure compatibility with the TFLite converter.
+2. Converts the fixed model into an INT8 quantized TFLite model 
+   suitable for deployment on edge devices
+"""
+
 import tensorflow as tf
 import numpy as np
 import glob
@@ -7,10 +17,12 @@ loaded = tf.saved_model.load("tf_model")
 
 concrete_func = None
 
+# find existing signature
 for fn in loaded.signatures.values():
     concrete_func = fn
     break
 
+# if no signature, manually set tensor shape
 if concrete_func is None:
     def wrapped(x):
         return loaded(x)
@@ -19,6 +31,7 @@ if concrete_func is None:
         tf.TensorSpec([1, 96, 96, 1], tf.float32)
     )
 
+# save the fixed signature model
 tf.saved_model.save(
     loaded,
     "tf_model_fixed",
