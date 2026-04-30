@@ -19,13 +19,6 @@ The core is a **TinyCNN** optimized for $96 \times 96$ grayscale input to minimi
     * **Data Augmentation:** Implemented during training to improve robustness against varying lighting and hand orientations.
     * **Early Stopping** Training conducted with validated early stopping to prevent overfitting, improving generalisation in deployment
 
-## Tech Stack
-* **Deep Learning:** PyTorch, TensorFlow Lite
-* **Model Exchange:** ONNX (Open Neural Network Exchange)
-* **Hardware:** Grove Vision AI Module V2 (Himax WiseEye2 / Arm Ethos-U55)
-* **Compiler:** Arm Vela
-* **Languages:** Python, PowerShell
-
 ## Project Structure
 ```text
 ├── deployment/          # Firmware and xmodem flash scripts for Grove V2
