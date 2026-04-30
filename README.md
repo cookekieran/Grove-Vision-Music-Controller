@@ -17,7 +17,7 @@ The core is a **TinyCNN** optimized for $96 \times 96$ grayscale input to minimi
 * **Generalization & Regularization:** 
     * **Heavy Dropout ($p=0.5$):** Strategically applied to prevent co-adaptation of features in a small-parameter space.
     * **Data Augmentation:** Implemented during training to improve robustness against varying lighting and hand orientations.
-    * **Early Stopping** Training conducting with validated early stopping to prevent overfitting, improving generalisation in deployment
+    * **Early Stopping** Training conducted with validated early stopping to prevent overfitting, improving generalisation in deployment
 
 ## Tech Stack
 * **Deep Learning:** PyTorch, TensorFlow Lite
@@ -36,8 +36,9 @@ The core is a **TinyCNN** optimized for $96 \times 96$ grayscale input to minimi
 │   ├── quantize.py      # INT8 Post-Training Quantization
 │   └── music_control.py # Host-side logic for media interaction
 └── requirements/        # Modular dependencies
+```
 
-## Reproducibility & Build Pipeline
+## Reproducibility
 
 To replicate the deployment of the TinyCNN onto the Grove Vision AI V2, follow the conversion chain below. Each stage requires a specific environment found in the `requirements/` directory.
 
@@ -66,6 +67,7 @@ The model undergoes a multi-stage transformation to move from PyTorch to hardwar
    
 ```powershell
    python scripts/export.py
+```
 
 #### **B. ONNX to TensorFlow**
 Because the Grove V2 requires a TFLite flatbuffer, we first translate the ONNX graph into a TensorFlow SavedModel:
